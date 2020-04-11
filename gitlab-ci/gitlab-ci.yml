@@ -1,0 +1,19 @@
+---
+stages:
+  - build_docker_images
+  - create_charts_repo
+
+Build docker image:
+  tags:
+    - docker
+  stage: build_docker_images
+  script:
+    - ./.ci/build_docker_image.sh
+
+Create charts repository:
+  tags:
+    - charts
+  stage: create_charts_repo
+  script:
+    - ./.ci/create_charts_repo.sh
+...
